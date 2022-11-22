@@ -1,8 +1,8 @@
 const socket = io();
 const btnOn1 = document.querySelector('.btn-danger');
 const btnOff1 = document.querySelector('.btn-light');
-const btnOn2 = document.querySelector('.btn-success');
-const btnOff2 = document.querySelector('.btn-info');
+const btnOn2 = document.querySelector('.slider');
+const btnOff2 = document.querySelector('.btn_led2');
 
 
 btnOn1.addEventListener('click',() => {
@@ -22,22 +22,22 @@ btnOn1.addEventListener('click',() => {
   })
 
 
-
   btnOn2.addEventListener('click',() => {
     if(confirm('Bật đèn không?')==true){
         socket.emit('ledStatus2', 'on');
         console.log('Clicked');
         document.getElementById('led2').src = './img/ledsang.png'
-    }
-  })
-  
-  btnOff2.addEventListener('click',() => {
-    if(confirm('Tắt đèn không?')==true){
+    }else if(confirm('Tắt đèn không?')==true){
+      btnOff2.addEventListener('click',() => {
         socket.emit('ledStatus2', 'off');
         console.log('Clicked');
         document.getElementById('led2').src = './img/ledtat.png'
-    }
-  })
+    })
+    }})
+
+  
+  
+  
   
   
   // btnLed2.addEventListener('click',() =>{

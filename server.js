@@ -17,9 +17,9 @@ const options = {
 };
 
 const client = mqtt.connect(options);
-const sensorsTopic = 'esp/dataSensors';
-const led1Topic = 'LED1';
-const led2Topic = 'LED2';
+const sensorsTopic = 'esp_dataSensors';
+const led1Topic = 'Led1';
+const led2Topic = 'Led2';
 
 client.on('connect', () => {
     console.log('MQTT connected!!');
@@ -29,7 +29,7 @@ client.subscribe(sensorsTopic, () => {
     client.on('message', (topic, message, packet) => {
         console.log(message.toString());
         io.sockets.emit('data-sensors', message.toString().split(' '));
-        // insertTB(`'${topic}', ${message.toString().split(' ')}`);
+        insertTB(`'${topic}', ${message.toString().split(' ')}`);
     });
 });
 io.on('connection', socket => {
@@ -80,9 +80,9 @@ const conn = mysql.createConnection({
 //     });
 // });
 
-// function insertTB(msg) {
-//     const sqlInsert = `INSERT INTO datasensors (topic, temp, hum,light) VALUES (${msg})`;
-//     conn.query(sqlInsert, (err, results) => {
-//         if (err) throw err;
-//     });
-// }
+function insertTB(msg) {
+    const sqlInsert = `INSERT INTO dlcambien (topic, temp, hum,light) VALUES (${msg})`;
+    conn.query(sqlInsert, (err, results) => {
+        if (err) throw err;
+    });
+}

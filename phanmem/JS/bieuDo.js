@@ -60,10 +60,15 @@ const handlingData = arr => {
   myNodeList[1].textContent = dataSS[1];
   myNodeList[2].textContent = dataSS[2];
 
-  fsRandomNhietDo(dataSS[0]);
-  
+fsRandomNhietDo()
+fsRandomDoAm()
+fsRandomAnhSang()
   const day = new Date();
   let time = `${day.getHours()}:${day.getMinutes()}:${day.getSeconds()}`;
   data.labels.push(time);
   data.labels.length === 13 && data.labels.shift();
-  sen
+  sensorsChart.update();
+};
+
+
+

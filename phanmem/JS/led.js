@@ -36,23 +36,6 @@ btnOn1.addEventListener('click',() => {
     }})
 
   
-  
-  
-  
-  
-  // btnLed2.addEventListener('click',() =>{
-  //   if(confirm('Bật đèn không?')==true){
-  //     socket.emit('LedStatus2','on');
-  //     // console.log('Clicked');
-  //     document.getElementById('led2').src = './img/ledsang.png'
-  //   }else if(confirm('Tắt đèn không?')==true){
-  //       socket.emit('LedStatus2','off');
-  //       // console.log('clicked');
-  //       document.getElementById('led2').src = './img/ledtat.png'
-  //     }
-  //   }
-  // )
-  
   socket.on('data-sensors', msg => {
     console.log(msg);
     handlingData(msg);

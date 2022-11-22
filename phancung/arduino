@@ -13,7 +13,7 @@
 #define mqtt_server "mqtt.wuys.me"
 #define mqtt_user "dai"
 #define mqtt_password "09042001"
-#define topic "esp/dataSensors"
+#define topic "esp_dataSensors"
 DHT dht(DHTPIN, DHTTYPE);
 
 WiFiClient espClient;
@@ -49,8 +49,8 @@ void reconnect() {
     String clientName = "dai";
     if (client.connect(clientName.c_str(), mqtt_user, mqtt_password)) {
       Serial.println("connected");
-      client.subscribe("LED1");
-      client.subscribe("LED2");
+      client.subscribe("Led1");
+      client.subscribe("Led2");
     } else {
       Serial.println("failed, try again in 5 seconds");
       delay(5000);
@@ -68,7 +68,7 @@ void callback(String topic_sub, byte *payload, unsigned int length) {
     }
   Serial.print(message);
   Serial.println();
-  if(topic_sub == "LED1"){
+  if(topic_sub == "Led1"){
     if(message == "on"){
       digitalWrite(pinOutLed1, HIGH);
       Serial.print("on");
@@ -78,7 +78,7 @@ void callback(String topic_sub, byte *payload, unsigned int length) {
        Serial.print("Off");
     }
   }
-  if(topic_sub == "LED2"){
+  if(topic_sub == "Led2"){
     if(message == "on"){
       digitalWrite(pinOutLed2, HIGH);
       Serial.print("on");

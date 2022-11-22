@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>BT5</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./CSS/style.css">  
+    </head>
+    <body>
+        <h3 style="font-family: 'Times New Roman', Times, serif;"><center> Kiều Như Ngọc - B19DCDT160</h3>
+        <div class="row">
+            <div class="col" id="nhietDo">
+                <h2>NHIỆT ĐỘ</h2>
+                <p id="randomNhietDo" onchange="fsRandomNhietDo()"> </p>
+            </div>
+            <div class="col" id="doAm">
+                <h2>ĐỘ ẨM</h2>
+                <p id="randomDoAm" onchange="fsRandomDoAm()" > </p>
+            </div>
+            <div class="col" id="anhSang">
+                <h2>ÁNH SÁNG</h2>
+                <p id="randomAnhSang" onchange="fsRandomAnhSang()"> </p>
+            </div>
+        </div>
+        <div class="row">
+                <div class="col-8 chart">
+                    <canvas id="myChart"></canvas>
+                </div>
+
+            <div class="col">
+                <div class="col bg-dark  " style=" height: 225px;color:white"><br>
+                    <h3 >LED 1</h3>
+                    <img id="led1" style="width:75px" src="./img/ledtat.png"><br><br>
+                    <button type="button" class="btn btn-danger" > ON</button>
+                    <button type="button" class="btn btn-light" >OFF</button>
+
+                </div>
+
+                <div class="col bg-white  " style=" height: 225px;color:white"><br>
+                    <h3 >LED 2</h3>
+                    <img id="led2" style="width:75px" src="./img/ledtat.png"><br><br>
+                    <button type="button" class="btn btn-success" > ON</button>
+                    <button type="button" class="btn btn-info" >OFF</button>
+
+                </div>
+                <!-- <div class="col bg-light" id="batDen2" style=" height: 225px;"><br>
+                    <h3>LED 2</h3>
+                    <img id="led2" style='width:75px' src="./img/ledtat.png"><br><br>
+                    <label class="switch">
+                        <input type="checkbox" class="btn_led2">
+                        <span class="slider round" ></span>
+                    </label>
+
+                </div> -->
+
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <!-- <script src="/socket.io/socket.io.js"></script> -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.3/socket.io.min.js"></script>
+        <script src="./JS/bieuDo.js"></script>
+        <script src="./JS/doiMau.js"></script>
+        <script src="./JS/led.js"></script>
+        <script src="/server.js"></script>
+
+    </body>
+</html>
